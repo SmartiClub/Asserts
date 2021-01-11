@@ -13,7 +13,17 @@ import club.smarti.readable.Readable;
 public abstract class AssertException extends RuntimeException {
 
     // Note: be aware of obfuscation tools
-    private final static String PKG = Asserts.class.getPackageName();
+    private final static String PKG_NAME;
+
+    static {
+        Package pkg = Asserts.class.getPackage();
+        if (pkg != null) {
+            PKG_NAME = pkg.getName();
+        }
+        else {
+            PKG_NAME = "unknown";
+        }
+    }
 
     /**
      * General constructor
@@ -22,7 +32,7 @@ public abstract class AssertException extends RuntimeException {
         super(Readable.toString(debugInfo));
 
         StackTraceElement[] stack = StackTrace.getCurrent();
-        stack = StackTrace.removePackage(stack, PKG);
+        stack = StackTrace.removePackage(stack, PKG_NAME);
         setStackTrace(stack);
     }
 }

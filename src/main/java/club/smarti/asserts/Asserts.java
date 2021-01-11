@@ -11,14 +11,14 @@ import club.smarti.asserts.exceptions.AssertUnsupportedException;
 import club.smarti.asserts.exceptions.base.AssertException;
 
 /**
- * Wrapper for system Assert
+ * Assertion tools for Java project (debug, unit testing and production)
  * *
  * Advantages:
  * – wide range of methods
  * – supports debug info, processed 'on-demand'
- * – single breakpoint for all exceptions
- * – individual exception types
- * – do not fail JUnit tests immediately, i.e. it can be caught
+ * – single breakpoint for all asserts
+ * – provides individual exception types
+ * – does not fail JUnit tests immediately, i.e. it can be caught
  * – can be turned on/off
  */
 public class Asserts extends Asserts_7_Content {
